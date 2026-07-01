@@ -3,7 +3,7 @@ const textos = document.querySelectorAll(".aba-conteudo");
 
 for (let i = 0; i < botoes.length; i++) {
     botoes[i].onclick = function () {
-        for(let j = 0; j < botoes.length; j++) {
+        for (let j = 0; j < botoes.length; j++) {
             botoes[j].classList.remove("ativo");
             textos[j].classList.remove("ativo");
         }
@@ -13,9 +13,14 @@ for (let i = 0; i < botoes.length; i++) {
 }
 
 const contadores = document.querySelectorAll(".contador");
-const tempoObjetivo1 = new Date("2026-09-05T00:00:00");
+const tempoObjetivo1 = new Date("2026-06-30T00:00:00");
+const tempoObjetivo2 = new Date("2026-08-31T00:00:00");
+const tempoObjetivo3 = new Date("2026-07-31T00:00:00");
+const tempoObjetivo4 = new Date("2026-12-11T00:00:00");
 
-contadores[0].textContent = calculaTempo(tempoObjetivo1);
+const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+
+const situacoes = document.querySelectorAll(".situacao")
 
 function calculaTempo(tempoObjetivo) {
     let tempoAtual = new Date();
@@ -29,6 +34,37 @@ function calculaTempo(tempoObjetivo) {
     minutos %= 60;
     horas %= 24;
 
-    return dias + " dias " + horas + " horas " + minutos + " minutos " + segundos + " segundos.";
-
+    if (tempoFinal > 0) {
+        return [dias,horas,minutos,segundos];
+    } else {
+        return [0,0,0,0];
+    }
 }
+
+funtion calculaSituacao(tempoObjetivo) {
+    let tempoAtual = new Date ();
+    
+}
+
+function atualizarCronometro() {
+    document.getElementById("dias0").textContent = calculaTempo(tempos[0])[0];
+    document.getElementById("horas0").textContent = calculaTempo(tempos[0])[1];
+    document.getElementById("min0").textContent = calculaTempo(tempos[0])[2];
+    document.getElementById("seg0").textContent = calculaTempo(tempos[0])[3];
+
+    for (let i = 0; i < contadores.length; i++) {
+        //contadores[i].textContent = calculaTempo(tempos[i]);
+    }
+}
+
+function comecaCronometro() {
+    atualizarCronometro();
+    setInterval(atualizarCronometro, 1000);
+}
+
+function atualizaSituação(){
+    for( let i=0; i < situacoes.length; i++) {
+        situacoes[i].textContent = calculaSituacao(tempo[i]);
+    }   
+}
+comecaCronometro();
