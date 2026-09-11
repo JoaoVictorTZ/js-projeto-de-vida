@@ -15,7 +15,6 @@ body {
     font-family: 'Chakra Petch', sans-serif;
 }
 
-
 .conteudo-principal {
     display: flex;
     flex-direction: column;
@@ -60,11 +59,6 @@ body {
     display: block;
 }
 
-.ativo {
-    background-color: var(--botao-ativo);
-    border-bottom: 4px solid var(--verde);
-}
-
 .abas-textos {
     background-color: var(--texto-fundo);
     padding: 40px;
@@ -93,6 +87,34 @@ body {
     text-align: center;
     color: var(--verde);
     text-transform: uppercase;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    min-width: 100px;
+}
+.contador-digito {
+    padding: 0 16px;
+    text-align: center;
+    min-width: 100px;
+}
+.contador-digito-numero {
+    font-size: 80px;
+    margin: 0;
+}
+.contador-digito-texto {
+    color: var(--verde);
+    font-size: 20px;
+    margin: 0;
+}
+
+.situacao {
+    color: var(--verde);
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
 }
 
 @media screen and (min-width: 768px) {
